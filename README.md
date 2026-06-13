@@ -31,6 +31,9 @@
    https://<твой-username>.github.io/<имя-репо>/
    ```
 
+   Для этого репозитория: `https://wertiba.github.io/Wertiba-Resume-AE/`
+   (если переименуешь репо — URL изменится вместе с именем).
+
 3. Ту же ссылку видно в логе job-а деплоя (шаг *deploy*).
 
 > Pages включается автоматически (`enablement: true` в workflow). Если деплой не

@@ -1,52 +1,65 @@
+// Данные для резюме (источник: https://github.com/Wertiba/Wertiba)
 const RESUME_DATA = {
-  name: "Твоё Имя",
-  title: "ML Engineer / Frontend Developer",
-  bio: "Разрабатываю современные веб-приложения и создаю интеллектуальные алгоритмы. Участник соревнований на Kaggle и контестов по программированию.",
+  name: "Роман (Roma)",
+  title: "Backend dev · ML researcher · Kaggle notebooks expert",
+  bio: "Still in high school, but building pet projects, taking outsource work, and winning olympiads. 3+ years of Python: from Telegram bots to AI/ML (CV and RecSys). Former Test Automation Engineer at ECM-Consulting.",
   links: {
-    github: "https://github.com/username",
-    kaggle: "https://www.kaggle.com/username",
-    email: "example@email.com",
-    telegram: "https://t.me/username"
+    github: "https://github.com/Wertiba",
+    kaggle: "https://kaggle.com/romanrozen",
+    email: "example@email.com", // Placeholder
+    telegram: "https://t.me/wertiba",
+    leetcode: "https://leetcode.com/wertiba"
   },
   achievements: [
     {
-      title: "Yandex Cup Finalist",
-      year: "2024",
-      description: "Вышел в финал крупнейшего чемпионата по программированию в категории Machine Learning."
+      title: "DANO spring SPb hackathon",
+      year: "2026",
+      description: "🥇 Absolute 1st place. Top-1 solution for data analysis challenge."
     },
     {
-      title: "Kaggle Master",
-      year: "2023",
-      description: "Достиг звания Kaggle Notebooks Master, создавая высококачественные туториалы по анализу данных."
+      title: "NTO 'Big data and machine learning'",
+      year: "2026",
+      description: "🏆 Prizer. Recognized for excellence in ML and big data tasks."
     },
     {
-      title: "Best Project Award",
-      year: "2022",
-      description: "Первое место на хакатоне за разработку системы автономного управления дронами."
+      title: "AI Business SPb hackathon",
+      year: "2026",
+      description: "🥉 3rd Place by case. Developed a backend solution for an AI business case."
+    },
+    {
+      title: "International SWE olympiad PROD",
+      year: "2026",
+      description: "Finalist in the individual track of the software engineering olympiad."
+    },
+    {
+      title: "Kaggle Notebooks Expert",
+      year: "2025",
+      description: "Achieved expert status by sharing high-quality notebooks and tutorials."
     }
   ],
   projects: [
     {
-      title: "AI Vision App",
-      description: "Система распознавания объектов в реальном времени с использованием TensorFlow и Vue3.",
-      link: "https://github.com/username/project1",
-      tags: ["Python", "TensorFlow", "Vue3"]
+      title: "Motivation bot",
+      description: "Parses events from Google Calendar and provides personal motivation messages based on LLM (Ollama).",
+      link: "https://github.com/Wertiba/TelegramMotivation",
+      tags: ["Python", "Telebot", "Ollama", "LLM"]
     },
     {
-      title: "Data Analysis Dashboard",
-      description: "Интерактивная панель для визуализации больших данных с Kaggle датасетов.",
-      link: "https://github.com/username/project2",
-      tags: ["Pandas", "Plotly", "D3.js"]
+      title: "Deepfake classifier",
+      description: "A classifier built during Yandex Lyceum using CNN and ResNET architectures.",
+      link: "https://www.kaggle.com/code/romanrozen/deepfake-classifier",
+      tags: ["CNN", "ResNET", "Kaggle", "PyTorch"]
     },
     {
-      title: "Smart Home Backend",
-      description: "Масштабируемый бэкенд для управления умным домом на базе FastAPI и Redis.",
-      link: "https://github.com/username/project3",
-      tags: ["FastAPI", "PostgreSQL", "Docker"]
+      title: "AI Business SPB Backend",
+      description: "Backend repository for the AI Business SPB Hackathon project.",
+      link: "https://github.com/Wertiba/AI-Business-SPB-Hackathon-Backend",
+      tags: ["Python", "Backend", "Hackathon"]
     }
   ]
 };
 
+// Для совместимости
 const PARADIGMS = [];
 const MILESTONES = [];
 
