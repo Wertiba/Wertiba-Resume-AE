@@ -1,72 +1,57 @@
-// Единственный источник данных хронологии.
-// Агентам: добавляешь веху — правишь этот массив, разметку не трогаешь.
-// Каждая веха: { year, title, description, tag }. Поле tag обязано входить в PARADIGMS.
-// Необязательное поле yearLabel — что показать вместо числа (например, «До 2021»).
+// Данные для резюме
+const RESUME_DATA = {
+  name: "Твоё Имя",
+  title: "ML Engineer / Frontend Developer",
+  bio: "Разрабатываю современные веб-приложения и создаю интеллектуальные алгоритмы. Участник соревнований на Kaggle и контестов по программированию.",
+  links: {
+    github: "https://github.com/username",
+    kaggle: "https://www.kaggle.com/username",
+    email: "example@email.com",
+    telegram: "https://t.me/username"
+  },
+  achievements: [
+    {
+      title: "Yandex Cup Finalist",
+      year: "2024",
+      description: "Вышел в финал крупнейшего чемпионата по программированию в категории Machine Learning."
+    },
+    {
+      title: "Kaggle Master",
+      year: "2023",
+      description: "Достиг звания Kaggle Notebooks Master, создавая высококачественные туториалы по анализу данных."
+    },
+    {
+      title: "Best Project Award",
+      year: "2022",
+      description: "Первое место на хакатоне за разработку системы автономного управления дронами."
+    }
+  ],
+  projects: [
+    {
+      title: "AI Vision App",
+      description: "Система распознавания объектов в реальном времени с использованием TensorFlow и Vue3.",
+      link: "https://github.com/username/project1",
+      tags: ["Python", "TensorFlow", "Vue3"]
+    },
+    {
+      title: "Data Analysis Dashboard",
+      description: "Интерактивная панель для визуализации больших данных с Kaggle датасетов.",
+      link: "https://github.com/username/project2",
+      tags: ["Pandas", "Plotly", "D3.js"]
+    },
+    {
+      title: "Smart Home Backend",
+      description: "Масштабируемый бэкенд для управления умным домом на базе FastAPI и Redis.",
+      link: "https://github.com/username/project3",
+      tags: ["FastAPI", "PostgreSQL", "Docker"]
+    }
+  ]
+};
 
-const PARADIGMS = [
-  'Предыстория',
-  'Автодополнение',
-  'Чат',
-  'AI-нативные IDE',
-  'Автономные агенты',
-  'Agentic engineering',
-];
+// Для совместимости с тестами и старым кодом, если нужно
+const PARADIGMS = [];
+const MILESTONES = [];
 
-const MILESTONES = [
-  {
-    year: 2020,
-    yearLabel: 'До 2021',
-    title: 'Предыстория',
-    tag: 'Предыстория',
-    description:
-      'IntelliSense и статический анализ годами помогали писать код, а Tabnine и Kite принесли первые ML-автодополнения. Машинное обучение пока лишь подсматривало за разработчиком, не претендуя на роль соавтора.',
-  },
-  {
-    year: 2021,
-    title: 'Парадигма 1 — автодополнение',
-    tag: 'Автодополнение',
-    description:
-      'GitHub Copilot (июнь 2021) показал, что модель умеет дописывать не отдельные токены, а целые строки и блоки. Автодополнение из словаря превратилось в подсказчика, который понимает контекст файла.',
-  },
-  {
-    year: 2022,
-    title: 'Парадигма 2 — чат',
-    tag: 'Чат',
-    description:
-      'ChatGPT (ноябрь 2022) сделал диалог с моделью массовым инструментом разработчика. Началась эпоха copy-paste разработки: вопрос — в чат, ответ — обратно в редактор.',
-  },
-  {
-    year: 2023,
-    title: 'Чат взрослеет',
-    tag: 'Чат',
-    description:
-      'GPT-4 поднял планку качества ответов, а чат переехал прямо в IDE. В этом же году основан Cursor — редактор, построенный вокруг диалога с моделью.',
-  },
-  {
-    year: 2024,
-    title: 'Парадигма 3 — AI-нативные IDE',
-    tag: 'AI-нативные IDE',
-    description:
-      'Cursor и Windsurf научились видеть весь проект, а не один открытый файл. Протокол MCP (ноябрь 2024) задал стандарт подключения агентов к инструментам и данным.',
-  },
-  {
-    year: 2025,
-    title: 'Парадигма 4 — автономные агенты',
-    tag: 'Автономные агенты',
-    description:
-      'Claude Code (февраль 2025) и агентные режимы повсюду превратили модель из подсказчика в исполнителя. Андрей Карпатый предложил термин «vibe coding»: описываешь намерение — агент пишет код.',
-  },
-  {
-    year: 2026,
-    title: 'Agentic engineering',
-    tag: 'Agentic engineering',
-    description:
-      'Облачные и фоновые агенты берут задачи «на ночь» и возвращают готовый PR к утру. Центр тяжести смещается к спецификациям и петле верификации: человек описывает и проверяет, агент реализует.',
-  },
-];
-
-// Браузер (классический <script>): MILESTONES и PARADIGMS остаются глобальными.
-// Node/тесты (CommonJS): отдаём их через module.exports.
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { MILESTONES, PARADIGMS };
+  module.exports = { RESUME_DATA, MILESTONES, PARADIGMS };
 }
