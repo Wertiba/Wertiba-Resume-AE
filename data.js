@@ -1,4 +1,3 @@
-// Данные для резюме
 const RESUME_DATA = {
   name: "Твоё Имя",
   title: "ML Engineer / Frontend Developer",
@@ -48,7 +47,6 @@ const RESUME_DATA = {
   ]
 };
 
-// Для совместимости с тестами и старым кодом, если нужно
 const PARADIGMS = [];
 const MILESTONES = [];
 

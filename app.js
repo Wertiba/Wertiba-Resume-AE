@@ -10,10 +10,8 @@ const app = createApp({
   }
 });
 
-// Монтируем приложение
 app.mount('#app');
 
-// Вспомогательные функции для обратной совместимости с тестами, если они понадобятся
 function sortByYear(milestones) {
   return [...milestones].sort((a, b) => a.year - b.year);
 }
