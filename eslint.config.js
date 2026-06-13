@@ -2,7 +2,7 @@ const js = require('@eslint/js');
 const globals = require('globals');
 
 module.exports = [
-  { ignores: ['node_modules/**', 'coverage/**'] },
+  { ignores: ['node_modules/**', 'coverage/**', 'vue.global.js'] },
   js.configs.recommended,
   {
     files: ['**/*.js'],
@@ -12,6 +12,10 @@ module.exports = [
       globals: {
         ...globals.browser,
         ...globals.node,
+        Vue: 'readonly',
+        RESUME_DATA: 'readonly',
+        MILESTONES: 'readonly',
+        PARADIGMS: 'readonly',
       },
     },
     rules: {

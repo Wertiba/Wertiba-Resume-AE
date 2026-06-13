@@ -3,36 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Dev Timeline — четыре парадигмы AI в разработке</title>
+    <title>Роман | Backend & ML Engineer</title>
     <meta
       name="description"
-      content="Интерактивная хронология: четыре парадигмы AI в разработке за пять лет."
+      content="Сайт-резюме Романа (Wertiba): проекты, достижения, Kaggle и GitHub."
     />
+    <!-- JetBrains Mono Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <script src="vue.global.js"></script>
   </head>
   <body>
-    <header class="hero">
-      <p class="hero__eyebrow">AI in Dev · митап-практикум</p>
-      <h1 class="hero__title">Четыре парадигмы AI<br />в разработке за пять лет</h1>
-      <p class="hero__lead">
-        От автодополнения строки до автономных агентов, которые берут задачу
-        «на ночь» и приносят PR к утру.
-      </p>
-    </header>
+    <div id="app" v-cloak>
+      <header class="hero">
+        <div class="hero__badge">Available for hire · {{ resume.name }}</div>
+        <h1 class="hero__title glitch-trigger" data-text="RESUME">{{ resume.name }}</h1>
+        <p class="hero__subtitle">{{ resume.title }}</p>
+        <p class="hero__lead">{{ resume.bio }}</p>
 
-    <main class="timeline-wrap">
-      <div id="timeline" class="timeline" aria-label="Хронология вех"></div>
-    </main>
+        <div class="hero__links">
+          <a :href="resume.links.github" target="_blank" class="btn btn--primary">GitHub</a>
+          <a :href="resume.links.kaggle" target="_blank" class="btn btn--secondary">Kaggle</a>
+          <a :href="resume.links.leetcode" target="_blank" class="btn btn--outline">LeetCode</a>
+          <a :href="resume.links.telegram" target="_blank" class="btn btn--outline">Telegram</a>
+        </div>
+      </header>
 
-    <footer class="footer">
-      <p>Шаблон практикума · добавь свою веху в <code>data.js</code> и открой PR.</p>
-    </footer>
+      <main class="container">
+        <section class="section">
+          <h2 class="section__title glitch-trigger" data-text="ACHIEVEMENTS">Достижения</h2>
+          <div class="grid grid--achievements">
+            <article v-for="ach in resume.achievements" :key="ach.title" class="card card--achievement">
+              <div class="card__year">{{ ach.year }}</div>
+              <h3 class="card__title">{{ ach.title }}</h3>
+              <p class="card__desc">{{ ach.description }}</p>
+            </article>
+          </div>
+        </section>
 
-    <!-- Классические скрипты: работают двойным кликом по index.html (file://) и на Pages. -->
+        <section class="section">
+          <h2 class="section__title glitch-trigger" data-text="PROJECTS">Проекты</h2>
+          <div class="grid grid--projects">
+            <article v-for="project in resume.projects" :key="project.title" class="card card--project">
+              <div class="card__tags">
+                <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
+              </div>
+              <h3 class="card__title">{{ project.title }}</h3>
+              <p class="card__desc">{{ project.description }}</p>
+              <a :href="project.link" target="_blank" class="card__link">View Project →</a>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 {{ resume.name }} · Built with Vue 3 & JetBrains Mono</p>
+      </footer>
+    </div>
+
     <script src="data.js"></script>
     <script src="app.js"></script>
-    <script>
-      renderTimeline(MILESTONES, document.getElementById('timeline'));
-    </script>
   </body>
 </html>

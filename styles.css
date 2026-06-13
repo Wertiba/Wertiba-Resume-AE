@@ -1,13 +1,14 @@
 :root {
-  --bg: #0a0e16;
-  --surface: #141c2b;
-  --surface-2: #1b2536;
-  --border: #263246;
-  --text: #e8eef7;
-  --muted: #94a3b8;
-  --accent: #6ea8fe;
-  --maxw: 860px;
-  --radius: 16px;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #150b1a; /* Dark purple tint */
+  --border: #222222;
+  --text: #ffffff;
+  --muted: #a0a0a0;
+  --accent: #ff8c00; /* Orange */
+  --secondary-accent: #8a2be2; /* Purple */
+  --maxw: 1100px;
+  --radius: 0;
   color-scheme: dark;
 }
 
@@ -17,6 +18,10 @@
   box-sizing: border-box;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -24,210 +29,293 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    radial-gradient(900px 500px at 12% -10%, rgba(110, 168, 254, 0.12), transparent 60%),
-    radial-gradient(900px 500px at 100% 8%, rgba(181, 140, 255, 0.1), transparent 55%),
-    var(--bg);
+  background-color: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, system-ui, sans-serif;
+  font-family: "JetBrains Mono", monospace;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-.hero,
-.timeline-wrap,
-.footer {
+.container {
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
   padding-inline: 24px;
 }
 
-/* ---------- Шапка ---------- */
-.hero {
-  padding-top: clamp(48px, 10vw, 96px);
-  padding-bottom: clamp(24px, 5vw, 48px);
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
 
-.hero__eyebrow {
-  margin: 0 0 12px;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
+.btn--primary {
+  background-color: var(--accent);
+  color: #000;
+}
+
+.btn--primary:hover {
+  background-color: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn--secondary {
+  background-color: var(--secondary-accent);
+  color: #fff;
+}
+
+.btn--secondary:hover {
+  background-color: transparent;
+  border-color: var(--secondary-accent);
+  color: var(--secondary-accent);
+}
+
+.btn--outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  border-color: var(--secondary-accent);
+  color: var(--secondary-accent);
+}
+
+/* ---------- Header / Hero ---------- */
+.hero {
+  padding-top: clamp(64px, 15vw, 120px);
+  padding-bottom: clamp(40px, 10vw, 80px);
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 24px;
+  background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15), transparent 40%);
+}
+
+.hero__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
   color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  margin-bottom: 24px;
 }
 
 .hero__title {
   margin: 0 0 16px;
-  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-size: clamp(2rem, 7vw, 4.5rem);
   line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--accent);
+  margin-bottom: 24px;
+  font-weight: 600;
 }
 
 .hero__lead {
-  margin: 0;
-  max-width: 54ch;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: 0 0 32px;
+  max-width: 65ch;
+  font-size: 1rem;
   color: var(--muted);
 }
 
-/* ---------- Лента ---------- */
-.timeline-wrap {
-  padding-block: 24px 48px;
+.hero__links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.timeline {
+/* ---------- Sections ---------- */
+.section {
+  padding-block: 80px;
+  border-top: 1px solid var(--border);
+}
+
+.section__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #fff;
   position: relative;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid--achievements {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--projects {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  padding-left: 36px;
-}
-
-/* вертикальная линия ленты */
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 11px;
-  width: 2px;
-  background: linear-gradient(
-    180deg,
-    rgba(110, 168, 254, 0.7),
-    var(--border) 28%,
-    var(--border)
-  );
-}
-
-/* ---------- Карточка ---------- */
-.card {
-  --card-accent: var(--accent);
+  transition: all 0.3s ease;
   position: relative;
-  background: linear-gradient(180deg, var(--surface), var(--surface-2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.9);
-  animation: card-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  overflow: hidden;
 }
 
-/* точка на линии */
-.card::before {
+.card:hover {
+  border-color: var(--secondary-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(138, 43, 226, 0.3);
+}
+
+.card::after {
   content: "";
   position: absolute;
-  left: -31px;
-  top: 26px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--card-accent);
-  border: 3px solid var(--bg);
-  box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.18);
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  background-color: var(--accent);
+  transition: height 0.3s ease;
+}
+
+.card:hover::after {
+  height: 100%;
 }
 
 .card__year {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--card-accent);
-  margin-bottom: 8px;
-  font-variant-numeric: tabular-nums;
-}
-
-.card__tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 3px 10px;
-  margin-bottom: 10px;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
 .card__title {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
+  margin: 0 0 16px;
+  font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .card__desc {
-  margin: 0;
+  margin: 0 0 24px;
   color: var(--muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
 }
 
-/* акцент по парадигме */
-.card[data-tag="Предыстория"] { --card-accent: #94a3b8; }
-.card[data-tag="Автодополнение"] { --card-accent: #6ea8fe; }
-.card[data-tag="Чат"] { --card-accent: #6ee7b7; }
-.card[data-tag="AI-нативные IDE"] { --card-accent: #fbbf24; }
-.card[data-tag="Автономные агенты"] { --card-accent: #b58cff; }
-.card[data-tag="Agentic engineering"] { --card-accent: #fb7185; }
-
-/* ---------- Подвал ---------- */
-.footer {
-  padding-block: 28px 56px;
-  margin-top: 24px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
+.card__tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
-code {
-  background: var(--surface-2);
+.tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  background-color: #1a1a1a;
+  padding: 4px 10px;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1px 6px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.85em;
+  color: var(--secondary-accent);
 }
 
-/* ---------- Анимация появления ленты ---------- */
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-top: auto;
 }
 
-.card:nth-child(1) { animation-delay: 0.04s; }
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.16s; }
-.card:nth-child(4) { animation-delay: 0.22s; }
-.card:nth-child(5) { animation-delay: 0.28s; }
-.card:nth-child(6) { animation-delay: 0.34s; }
-.card:nth-child(7) { animation-delay: 0.4s; }
-.card:nth-child(8) { animation-delay: 0.46s; }
-.card:nth-child(9) { animation-delay: 0.52s; }
-.card:nth-child(n + 10) { animation-delay: 0.58s; }
-
-/* ---------- Узкие экраны ---------- */
-@media (max-width: 520px) {
-  .timeline {
-    padding-left: 28px;
-  }
-  .card {
-    padding: 16px 16px;
-  }
-  .card::before {
-    left: -23px;
-  }
+.card__link:hover {
+  letter-spacing: 0.1em;
 }
 
-/* ---------- Уважение к настройкам движения ---------- */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/* ---------- Footer ---------- */
+.footer {
+  padding-block: 60px;
+  border-top: 1px solid var(--border);
+  color: #444;
+  font-size: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ---------- Glitch Effect ---------- */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-accent);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--accent);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(31px, 9999px, 94px, 0); }
+  20% { clip: rect(62px, 9999px, 42px, 0); }
+  40% { clip: rect(16px, 9999px, 78px, 0); }
+  60% { clip: rect(58px, 9999px, 13px, 0); }
+  80% { clip: rect(85px, 9999px, 5px, 0); }
+  100% { clip: rect(10px, 9999px, 86px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(25px, 9999px, 10px, 0); }
+  20% { clip: rect(67px, 9999px, 98px, 0); }
+  40% { clip: rect(10px, 9999px, 20px, 0); }
+  60% { clip: rect(80px, 9999px, 50px, 0); }
+  80% { clip: rect(40px, 9999px, 70px, 0); }
+  100% { clip: rect(90px, 9999px, 30px, 0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero__links {
+    flex-direction: column;
   }
-  .card {
-    animation: none;
+  .btn {
+    text-align: center;
   }
 }

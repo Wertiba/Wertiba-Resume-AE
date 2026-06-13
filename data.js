@@ -1,72 +1,68 @@
-// Единственный источник данных хронологии.
-// Агентам: добавляешь веху — правишь этот массив, разметку не трогаешь.
-// Каждая веха: { year, title, description, tag }. Поле tag обязано входить в PARADIGMS.
-// Необязательное поле yearLabel — что показать вместо числа (например, «До 2021»).
+// Данные для резюме (источник: https://github.com/Wertiba/Wertiba)
+const RESUME_DATA = {
+  name: "Роман (Roma)",
+  title: "Backend dev · ML researcher · Kaggle notebooks expert",
+  bio: "Still in high school, but building pet projects, taking outsource work, and winning olympiads. 3+ years of Python: from Telegram bots to AI/ML (CV and RecSys). Former Test Automation Engineer at ECM-Consulting.",
+  links: {
+    github: "https://github.com/Wertiba",
+    kaggle: "https://kaggle.com/romanrozen",
+    email: "example@email.com", // Placeholder
+    telegram: "https://t.me/wertiba",
+    leetcode: "https://leetcode.com/wertiba"
+  },
+  achievements: [
+    {
+      title: "DANO spring SPb hackathon",
+      year: "2026",
+      description: "🥇 Absolute 1st place. Top-1 solution for data analysis challenge."
+    },
+    {
+      title: "NTO 'Big data and machine learning'",
+      year: "2026",
+      description: "🏆 Prizer. Recognized for excellence in ML and big data tasks."
+    },
+    {
+      title: "AI Business SPb hackathon",
+      year: "2026",
+      description: "🥉 3rd Place by case. Developed a backend solution for an AI business case."
+    },
+    {
+      title: "International SWE olympiad PROD",
+      year: "2026",
+      description: "Finalist in the individual track of the software engineering olympiad."
+    },
+    {
+      title: "Kaggle Notebooks Expert",
+      year: "2025",
+      description: "Achieved expert status by sharing high-quality notebooks and tutorials."
+    }
+  ],
+  projects: [
+    {
+      title: "Motivation bot",
+      description: "Parses events from Google Calendar and provides personal motivation messages based on LLM (Ollama).",
+      link: "https://github.com/Wertiba/TelegramMotivation",
+      tags: ["Python", "Telebot", "Ollama", "LLM"]
+    },
+    {
+      title: "Deepfake classifier",
+      description: "A classifier built during Yandex Lyceum using CNN and ResNET architectures.",
+      link: "https://www.kaggle.com/code/romanrozen/deepfake-classifier",
+      tags: ["CNN", "ResNET", "Kaggle", "PyTorch"]
+    },
+    {
+      title: "AI Business SPB Backend",
+      description: "Backend repository for the AI Business SPB Hackathon project.",
+      link: "https://github.com/Wertiba/AI-Business-SPB-Hackathon-Backend",
+      tags: ["Python", "Backend", "Hackathon"]
+    }
+  ]
+};
 
-const PARADIGMS = [
-  'Предыстория',
-  'Автодополнение',
-  'Чат',
-  'AI-нативные IDE',
-  'Автономные агенты',
-  'Agentic engineering',
-];
+// Для совместимости
+const PARADIGMS = [];
+const MILESTONES = [];
 
-const MILESTONES = [
-  {
-    year: 2020,
-    yearLabel: 'До 2021',
-    title: 'Предыстория',
-    tag: 'Предыстория',
-    description:
-      'IntelliSense и статический анализ годами помогали писать код, а Tabnine и Kite принесли первые ML-автодополнения. Машинное обучение пока лишь подсматривало за разработчиком, не претендуя на роль соавтора.',
-  },
-  {
-    year: 2021,
-    title: 'Парадигма 1 — автодополнение',
-    tag: 'Автодополнение',
-    description:
-      'GitHub Copilot (июнь 2021) показал, что модель умеет дописывать не отдельные токены, а целые строки и блоки. Автодополнение из словаря превратилось в подсказчика, который понимает контекст файла.',
-  },
-  {
-    year: 2022,
-    title: 'Парадигма 2 — чат',
-    tag: 'Чат',
-    description:
-      'ChatGPT (ноябрь 2022) сделал диалог с моделью массовым инструментом разработчика. Началась эпоха copy-paste разработки: вопрос — в чат, ответ — обратно в редактор.',
-  },
-  {
-    year: 2023,
-    title: 'Чат взрослеет',
-    tag: 'Чат',
-    description:
-      'GPT-4 поднял планку качества ответов, а чат переехал прямо в IDE. В этом же году основан Cursor — редактор, построенный вокруг диалога с моделью.',
-  },
-  {
-    year: 2024,
-    title: 'Парадигма 3 — AI-нативные IDE',
-    tag: 'AI-нативные IDE',
-    description:
-      'Cursor и Windsurf научились видеть весь проект, а не один открытый файл. Протокол MCP (ноябрь 2024) задал стандарт подключения агентов к инструментам и данным.',
-  },
-  {
-    year: 2025,
-    title: 'Парадигма 4 — автономные агенты',
-    tag: 'Автономные агенты',
-    description:
-      'Claude Code (февраль 2025) и агентные режимы повсюду превратили модель из подсказчика в исполнителя. Андрей Карпатый предложил термин «vibe coding»: описываешь намерение — агент пишет код.',
-  },
-  {
-    year: 2026,
-    title: 'Agentic engineering',
-    tag: 'Agentic engineering',
-    description:
-      'Облачные и фоновые агенты берут задачи «на ночь» и возвращают готовый PR к утру. Центр тяжести смещается к спецификациям и петле верификации: человек описывает и проверяет, агент реализует.',
-  },
-];
-
-// Браузер (классический <script>): MILESTONES и PARADIGMS остаются глобальными.
-// Node/тесты (CommonJS): отдаём их через module.exports.
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { MILESTONES, PARADIGMS };
+  module.exports = { RESUME_DATA, MILESTONES, PARADIGMS };
 }
