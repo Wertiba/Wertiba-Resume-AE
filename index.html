@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Роман | Backend & ML Engineer</title>
+    <title>Резюме | ML Engineer & Developer</title>
     <meta
       name="description"
-      content="Сайт-резюме Романа (Wertiba): проекты, достижения, Kaggle и GitHub."
+      content="Сайт-резюме в стиле Yandex Cup: проекты, достижения, Kaggle и GitHub."
     />
     <!-- JetBrains Mono Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,22 +18,21 @@
   <body>
     <div id="app" v-cloak>
       <header class="hero">
-        <div class="hero__badge">Available for hire · {{ resume.name }}</div>
-        <h1 class="hero__title glitch-trigger" data-text="RESUME">{{ resume.name }}</h1>
+        <div class="hero__badge">Available for projects</div>
+        <h1 class="hero__title">{{ resume.name }}</h1>
         <p class="hero__subtitle">{{ resume.title }}</p>
         <p class="hero__lead">{{ resume.bio }}</p>
 
         <div class="hero__links">
           <a :href="resume.links.github" target="_blank" class="btn btn--primary">GitHub</a>
           <a :href="resume.links.kaggle" target="_blank" class="btn btn--secondary">Kaggle</a>
-          <a :href="resume.links.leetcode" target="_blank" class="btn btn--outline">LeetCode</a>
-          <a :href="resume.links.telegram" target="_blank" class="btn btn--outline">Telegram</a>
+          <a :href="'mailto:' + resume.links.email" class="btn btn--outline">Email</a>
         </div>
       </header>
 
       <main class="container">
         <section class="section">
-          <h2 class="section__title glitch-trigger" data-text="ACHIEVEMENTS">Достижения</h2>
+          <h2 class="section__title">Достижения</h2>
           <div class="grid grid--achievements">
             <article v-for="ach in resume.achievements" :key="ach.title" class="card card--achievement">
               <div class="card__year">{{ ach.year }}</div>
@@ -44,7 +43,7 @@
         </section>
 
         <section class="section">
-          <h2 class="section__title glitch-trigger" data-text="PROJECTS">Проекты</h2>
+          <h2 class="section__title">Проекты</h2>
           <div class="grid grid--projects">
             <article v-for="project in resume.projects" :key="project.title" class="card card--project">
               <div class="card__tags">
@@ -59,7 +58,7 @@
       </main>
 
       <footer class="footer">
-        <p>© 2026 {{ resume.name }} · Built with Vue 3 & JetBrains Mono</p>
+        <p>© 2026 {{ resume.name }} · Построено на Vue 3</p>
       </footer>
     </div>
 
