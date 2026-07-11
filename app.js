@@ -3,23 +3,23 @@ const { createApp, ref } = Vue;
 const app = createApp({
   setup() {
     const resume = ref(RESUME_DATA);
-    const selectedProject = ref(null);
+    const selectedItem = ref(null);
 
-    const openProject = (project) => {
-      selectedProject.value = project;
+    const openModal = (item) => {
+      selectedItem.value = item;
       document.body.style.overflow = 'hidden';
     };
 
-    const closeProject = () => {
-      selectedProject.value = null;
+    const closeModal = () => {
+      selectedItem.value = null;
       document.body.style.overflow = '';
     };
 
     return {
       resume,
-      selectedProject,
-      openProject,
-      closeProject
+      selectedItem,
+      openModal,
+      closeModal
     };
   }
 });
