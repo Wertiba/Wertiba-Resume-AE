@@ -18,27 +18,32 @@ const RESUME_DATA = {
     {
       title: "DANO spring SPb hackathon",
       year: "2026",
-      description: "🥇 Absolute 1st place. Top-1 solution for data analysis challenge."
+      description: "🥇 Absolute 1st place. Top-1 solution for data analysis challenge.",
+      details: "DANO (Data Analysis National Olympiad) is a prestigious competition organized by HSE University and Tinkoff. In the Spring SPb Hackathon, our team secured the absolute first place by developing a top-tier data analysis solution, demonstrating advanced skills in exploratory data analysis and predictive modeling."
     },
     {
       title: "NTO 'Big data and machine learning'",
       year: "2026",
-      description: "🏆 Prizer. Recognized for excellence in ML and big data tasks."
+      description: "🏆 Prizer. Recognized for excellence in ML and big data tasks.",
+      details: "The National Technology Olympiad (NTO) is Russia's largest engineering competition. In the 'Big Data and Machine Learning' track, I was awarded as a prizer. The competition involved solving complex real-world problems using large datasets, deep learning models, and efficient data processing pipelines."
     },
     {
       title: "AI Business SPb hackathon",
       year: "2026",
-      description: "🥉 3rd Place by case. Developed a backend solution for an AI business case."
+      description: "🥉 3rd Place by case. Developed a backend solution for an AI business case.",
+      details: "At the AI Business SPb Hackathon, our team focused on a business-oriented AI challenge. I was responsible for the backend architecture, ensuring seamless integration between the AI models and the end-user interface. We achieved 3rd place among numerous competitive teams."
     },
     {
       title: "International SWE olympiad PROD",
       year: "2026",
-      description: "Finalist in the individual track of the software engineering olympiad."
+      description: "Finalist in the individual track of the software engineering olympiad.",
+      details: "PROD is an international software engineering olympiad held by HSE and Tinkoff. It focuses on industrial development standards. Being a finalist in the individual track confirms my ability to design, implement, and test robust software solutions under time pressure and high-quality requirements."
     },
     {
       title: "Kaggle Notebooks Expert",
       year: "2025",
-      description: "Achieved expert status by sharing high-quality notebooks and tutorials."
+      description: "Achieved expert status by sharing high-quality notebooks and tutorials.",
+      details: "Kaggle is the world's leading data science community. Reaching the 'Expert' status in the Notebooks category requires consistent contribution of high-quality, well-documented, and impactful code that is recognized and upvoted by the community peers."
     }
   ],
   projects: [
