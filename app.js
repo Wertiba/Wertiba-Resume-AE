@@ -1,4 +1,4 @@
-const { createApp, ref } = Vue;
+const { createApp, ref, onMounted, onUnmounted } = Vue;
 
 const app = createApp({
   setup() {
@@ -15,6 +15,20 @@ const app = createApp({
       document.body.style.overflow = '';
     };
 
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape' && selectedItem.value) {
+        closeModal();
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener('keydown', handleKeydown);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('keydown', handleKeydown);
+    });
+
     return {
       resume,
       selectedItem,
@@ -24,10 +38,10 @@ const app = createApp({
   }
 });
 
-// Монтируем приложение
+// Mount the application
 app.mount('#app');
 
-// Вспомогательные функции для обратной совместимости
+// Helper functions for backward compatibility
 function sortByYear(milestones) {
   return [...milestones].sort((a, b) => a.year - b.year);
 }

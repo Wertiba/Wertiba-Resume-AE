@@ -1,6 +1,6 @@
-// Данные для резюме (источник: https://github.com/Wertiba/Wertiba)
+// Resume data (source: https://github.com/Wertiba/Wertiba)
 const RESUME_DATA = {
-  name: "Роман (Roma)",
+  name: "Roman",
   title: "Backend dev · ML researcher · Kaggle notebooks expert",
   bio: "Still in high school, but building pet projects, taking outsource work, and winning olympiads. 3+ years of Python: from Telegram bots to AI/ML (CV and RecSys). Former Test Automation Engineer at ECM-Consulting.",
   links: {
@@ -12,7 +12,8 @@ const RESUME_DATA = {
   },
   skills: [
     "Python", "FastAPI", "PyTorch", "scikit-learn", "OpenCV",
-    "PostgreSQL", "Docker", "Grafana", "Kotlin", "Git", "Linux"
+    "PostgreSQL", "Docker", "Grafana", "Kotlin", "Git", "Linux",
+    "Prometheus", "Telebot", "Ollama"
   ],
   achievements: [
     {
@@ -71,7 +72,7 @@ const RESUME_DATA = {
   ]
 };
 
-// Для совместимости
+// For compatibility
 const PARADIGMS = [];
 const MILESTONES = [];
 

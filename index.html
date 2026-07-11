@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Роман | Backend & ML Engineer</title>
+    <title>Roman | Backend & ML Engineer</title>
     <meta
       name="description"
-      content="Сайт-резюме Романа (Wertiba): проекты, достижения, Kaggle и GitHub."
+      content="Resume website of Roman (Wertiba): projects, achievements, Kaggle, and GitHub."
     />
     <!-- JetBrains Mono Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,21 +33,20 @@
 
       <main class="container">
         <section class="section">
-          <h2 class="section__title">Навыки</h2>
+          <h2 class="section__title">Skills</h2>
           <div class="skills-grid">
             <span v-for="skill in resume.skills" :key="skill" class="skill-tag">{{ skill }}</span>
           </div>
         </section>
 
         <section class="section">
-          <h2 class="section__title">Достижения</h2>
+          <h2 class="section__title">Achievements</h2>
           <div class="grid grid--achievements">
             <article
               v-for="ach in resume.achievements"
               :key="ach.title"
               class="card card--achievement"
               @click="openModal(ach)"
-              style="cursor: pointer;"
             >
               <div class="card__year">{{ ach.year }}</div>
               <h3 class="card__title">{{ ach.title }}</h3>
@@ -57,14 +56,13 @@
         </section>
 
         <section class="section">
-          <h2 class="section__title">Проекты</h2>
+          <h2 class="section__title">Projects</h2>
           <div class="grid grid--projects">
             <article
               v-for="project in resume.projects"
               :key="project.title"
               class="card card--project"
               @click="openModal(project)"
-              style="cursor: pointer;"
             >
               <div class="card__tags">
                 <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
@@ -90,7 +88,7 @@
             <div v-if="selectedItem.tags" class="card__tags">
               <span v-for="tag in selectedItem.tags" :key="tag" class="tag">{{ tag }}</span>
             </div>
-            <div v-if="selectedItem.year" class="card__year" style="margin-bottom: 8px;">{{ selectedItem.year }}</div>
+            <div v-if="selectedItem.year" class="modal-year">{{ selectedItem.year }}</div>
 
             <h2 class="modal-title">{{ selectedItem.title }}</h2>
             <div class="modal-body">
