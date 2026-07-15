@@ -97,7 +97,7 @@ body {
   max-width: var(--maxw);
   margin-inline: auto;
   padding-inline: 24px;
-  background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.15), transparent 40%);
+  background: radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1), transparent 60%);
 }
 
 .hero__badge {
@@ -201,6 +201,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -325,6 +326,13 @@ body {
 
 .modal-close:hover {
   color: var(--accent);
+}
+
+.modal-year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
 }
 
 .modal-title {
